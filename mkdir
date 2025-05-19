@@ -1,0 +1,36 @@
+# Crear directorios para la Aplicación de Escritorio
+mkdir app_escritorio
+mkdir app_escritorio\public
+mkdir app_escritorio\src_renderer
+mkdir app_escritorio\src_renderer\api
+mkdir app_escritorio\src_renderer\assets
+mkdir app_escritorio\src_renderer\components
+mkdir app_escritorio\src_renderer\components\auth
+mkdir app_escritorio\src_renderer\components\sorteo
+mkdir app_escritorio\src_renderer\components\dashboard
+mkdir app_escritorio\src_renderer\components\shared
+mkdir app_escritorio\src_renderer\context
+mkdir app_escritorio\src_renderer\hooks
+mkdir app_escritorio\src_renderer\pages
+mkdir app_escritorio\src_renderer\services
+mkdir app_escritorio\src_renderer\utils
+mkdir app_escritorio\src_main
+mkdir app_escritorio\src_main\database
+mkdir app_escritorio\src_main\utils
+
+# Crear directorios para el Backend Opcional (server)
+mkdir server
+mkdir server\config
+mkdir server\controllers
+mkdir server\database
+mkdir server\database\migrations # Para PostgreSQL si se usa
+mkdir server\database\seeds      # Para PostgreSQL si se usa
+mkdir server\middlewares
+mkdir server\models
+mkdir server\routes
+mkdir server\services
+mkdir server\utils
+
+# Crear directorios adicionales en la raíz del proyecto
+mkdir docs
+mkdir scripts

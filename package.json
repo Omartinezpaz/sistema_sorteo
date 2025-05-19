@@ -1,0 +1,26 @@
+{
+  "name": "sorteo_pueblo_valiente",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:migrate-municipal": "node scripts/migrate-municipal.js",
+    "db:fix-timestamp": "node scripts/fix-timestamp.js",
+    "db:setup": "node scripts/setup-db.js",
+    "start": "cd app_escritorio && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
+    "pdfmake": "^0.2.20",
+    "pg": "^8.16.0"
+  }
+}
