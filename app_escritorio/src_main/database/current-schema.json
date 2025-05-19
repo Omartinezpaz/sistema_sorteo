@@ -1,0 +1,345 @@
+{
+  "usuarios": {
+    "columns": [
+      {
+        "name": "id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('usuarios_id_seq'::regclass)"
+      },
+      {
+        "name": "username",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "password_hash",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "nombre_completo",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "email",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "rol",
+        "type": "character varying",
+        "nullable": false,
+        "default": "'operador'::character varying"
+      },
+      {
+        "name": "activo",
+        "type": "boolean",
+        "nullable": true,
+        "default": "true"
+      },
+      {
+        "name": "ultimo_acceso",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "now()"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "now()"
+      }
+    ],
+    "primaryKey": "id"
+  },
+  "sorteos": {
+    "columns": [
+      {
+        "name": "id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('sorteos_id_seq'::regclass)"
+      },
+      {
+        "name": "nombre",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "fecha_creacion",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "fecha_sorteo",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "estado",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "descripcion",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "creado_por",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "estado_actual",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'borrador'::character varying"
+      },
+      {
+        "name": "es_publico",
+        "type": "boolean",
+        "nullable": true,
+        "default": "false"
+      },
+      {
+        "name": "reglas",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "imagenes_json",
+        "type": "jsonb",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "metadata",
+        "type": "jsonb",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "configuracion_diseno_tique",
+        "type": "jsonb",
+        "nullable": true,
+        "default": null
+      }
+    ],
+    "primaryKey": "id"
+  },
+  "participantes": {
+    "columns": [
+      {
+        "name": "id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('participantes_id_seq'::regclass)"
+      },
+      {
+        "name": "sorteo_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "nombre",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "email",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "telefono",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "fecha_registro",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "validado",
+        "type": "boolean",
+        "nullable": true,
+        "default": "false"
+      },
+      {
+        "name": "validado_por",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "fecha_validacion",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "metodo_registro",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'manual'::character varying"
+      },
+      {
+        "name": "datos_adicionales",
+        "type": "jsonb",
+        "nullable": true,
+        "default": null
+      }
+    ],
+    "primaryKey": "id"
+  },
+  "premios": {
+    "columns": [
+      {
+        "name": "id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('premios_id_seq'::regclass)"
+      },
+      {
+        "name": "sorteo_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "nombre",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "descripcion",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "valor",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "orden",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "categoria_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "patrocinador",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "condiciones",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "fecha_entrega",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "images_json",
+        "type": "jsonb",
+        "nullable": true,
+        "default": null
+      }
+    ],
+    "primaryKey": "id"
+  },
+  "ganadores": {
+    "columns": [
+      {
+        "name": "id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('ganadores_id_seq'::regclass)"
+      },
+      {
+        "name": "sorteo_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "participante_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "premio_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "fecha_sorteo",
+        "type": "timestamp without time zone",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "validado",
+        "type": "boolean",
+        "nullable": true,
+        "default": "false"
+      },
+      {
+        "name": "informacion_contacto",
+        "type": "jsonb",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "now()"
+      }
+    ],
+    "primaryKey": "id"
+  }
+}

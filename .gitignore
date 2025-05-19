@@ -1,0 +1,105 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Archivos de diagnóstico
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directorio para librerías instrumentadas generadas por jscoverage/JSCover
+lib-cov
+
+# Coverage directory used by tools like istanbul
+coverage
+*.lcov
+
+# Carpetas de dependencias
+node_modules/
+jspm_packages/
+
+# Información de caché de TypeScript
+*.tsbuildinfo
+
+# Caché npm opcional
+.npm
+
+# Caché ESLint opcional
+.eslintcache
+
+# Caché microbundle
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Historiales REPL opcionales
+.node_repl_history
+
+# Salida de 'npm pack'
+*.tgz
+
+# Carpeta de dotenv
+.env
+.env.test
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Carpetas de builds
+dist/
+build/
+out/
+
+# Archivos de configuración y claves
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Electron specific
+app/dist
+app/build
+app/node_modules
+
+# Archivos de compilación
+**/*.js.map
+**/*.js.LICENSE.txt
+
+# Archivos temporales
+.tmp
+.temp
+
+# Archivos grandes excluidos
+archivo_sql/datos.txt
+archivo_sql/datos_exportados.csv
+*.csv
+*.bak
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.db
+*.sqlite
+*.sqlite3
+*.bson
+*.dump
+
+# Otros archivos que podrían ser grandes
+poblacion_*.csv
+package-lock.json

@@ -1,0 +1,371 @@
+/* Estilos para componentes comunes */
+
+:root {
+  --primary: #FC0457;
+  --primary-dark: #D80349;
+  --primary-light: #FF4E80;
+  --primary-lighter: #FFE5EC;
+  --secondary: #6C757D;
+  --secondary-dark: #5A6268;
+  --secondary-light: #ADB5BD;
+  --success: #28A745;
+  --danger: #DC3545;
+  --warning: #FFC107;
+  --info: #17A2B8;
+  --light: #F8F9FA;
+  --dark: #343A40;
+  --gray: #6C757D;
+  --gray-light: #F8F9FA;
+  --gray-dark: #343A40;
+}
+
+/* Estilos para botones */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  border: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  background-color: var(--secondary);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  border: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  font-weight: 500;
+  color: var(--primary);
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.1s;
+  border: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.btn-text:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.btn-text:active {
+  transform: translateY(1px);
+}
+
+.btn-text:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Estilos para tarjetas */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transform-none:hover {
+  transform: none;
+}
+
+/* Estilos para badges */
+.badge {
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background-color: var(--primary-lighter);
+  color: var(--primary);
+}
+
+.badge-success {
+  background-color: #D1E7DD;
+  color: #0F5132;
+}
+
+.badge-warning {
+  background-color: #FFF3CD;
+  color: #856404;
+}
+
+.badge-danger {
+  background-color: #F8D7DA;
+  color: #721C24;
+}
+
+/* Estilos para estados */
+.estado-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.estado-activo {
+  background-color: #D1E7DD;
+  color: #0F5132;
+}
+
+.estado-pendiente {
+  background-color: #FFF3CD;
+  color: #856404;
+}
+
+.estado-finalizado {
+  background-color: #CFF4FC;
+  color: #055160;
+}
+
+.tipo-nacional {
+  background-color: var(--primary-lighter);
+  color: var(--primary-dark);
+}
+
+.tipo-regional {
+  background-color: #D7F3FF;
+  color: #0369A1;
+}
+
+.tipo-mixto {
+  background-color: #E9D5FF;
+  color: #6B21A8;
+}
+
+/* Estilos para chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  background-color: #F3F4F6;
+  color: #374151;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.chip-icon {
+  margin-right: 0.25rem;
+}
+
+.chip-delete {
+  margin-left: 0.25rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.chip-delete:hover {
+  opacity: 1;
+}
+
+/* Estilos para stepper */
+.stepper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.stepper-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 2.5rem);
+  height: 2px;
+  background-color: #E5E7EB;
+  top: 1rem;
+  left: calc(50% + 1.25rem);
+  z-index: 1;
+}
+
+.stepper-step.completed:not(:last-child)::after {
+  background-color: var(--primary);
+}
+
+.stepper-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #F3F4F6;
+  color: #6B7280;
+  font-weight: 500;
+  border: 2px solid #E5E7EB;
+  z-index: 2;
+  margin-bottom: 0.5rem;
+}
+
+.stepper-step.active .stepper-icon {
+  background-color: var(--primary-lighter);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.stepper-step.completed .stepper-icon {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.stepper-label {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.stepper-step.active .stepper-label {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Utilidades de spacing y layout */
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-gray-100 {
+  border-color: #F3F4F6;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray-500 {
+  color: #6B7280;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 3rem;
+  background-color: var(--primary);
+  border-radius: 3px;
+} 

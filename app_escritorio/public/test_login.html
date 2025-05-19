@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba de Renderizado</title>
+  <style>
+    body { 
+      background: #3498db;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+    .test-form {
+      background: #f39c12;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      color: black;
+      width: 350px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    button {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .info {
+      color: white;
+      background: rgba(0,0,0,0.3);
+      padding: 10px 20px;
+      border-radius: 4px;
+      max-width: 600px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>PÁGINA DE PRUEBA DE RENDERIZADO</h1>
+  
+  <div class="test-form">
+    <h2>Si puedes ver esta página, Electron está renderizando HTML correctamente</h2>
+    <p>Esta es una página de prueba para verificar que Electron está renderizando HTML correctamente.</p>
+    <button onclick="mostrarMensaje()">Haz clic para probar JavaScript</button>
+  </div>
+  
+  <div class="info">
+    <p>Si esta página se muestra pero la aplicación principal no, el problema podría estar en React o en la configuración de webpack.</p>
+    <p>Abre las herramientas de desarrollo (F12) para ver los mensajes en la consola.</p>
+  </div>
+
+  <script>
+    console.log('=============================');
+    console.log('PÁGINA DE PRUEBA CARGADA CORRECTAMENTE');
+    console.log('=============================');
+
+    // Cambiar el color de fondo cada 2 segundos
+    const colors = ['#3498db', '#2980b9', '#1abc9c', '#16a085', '#2ecc71', '#27ae60'];
+    let colorIndex = 0;
+
+    setInterval(() => {
+      colorIndex = (colorIndex + 1) % colors.length;
+      document.body.style.backgroundColor = colors[colorIndex];
+      console.log('Cambiando color de fondo a:', colors[colorIndex]);
+    }, 2000);
+
+    function mostrarMensaje() {
+      alert('JavaScript funciona correctamente en esta página de prueba');
+      console.log('El botón fue presionado, JavaScript funciona correctamente');
+    }
+  </script>
+</body>
+</html> 

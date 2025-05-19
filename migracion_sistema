@@ -1,0 +1,579 @@
+
+# Plan de Migración - Sistema de Sorteos
+
+## Estructura de Carpetas Recomendada
+
+```
+sorteo/
+├── server/                       # Backend
+│   ├── config/                   # Configuraciones
+│   ├── controllers/              # Controladores
+│   ├── models/                   # Modelos
+│   ├── routes/                   # Rutas API
+│   ├── middlewares/              # Middlewares
+│   ├── utils/                    # Utilidades
+│   ├── database/                 # Operaciones de base de datos
+│   │   ├── migrations/           # Migraciones
+│   │   ├── seeds/                # Datos iniciales
+│   │   └── models/               # Definición de modelos
+│   ├── services/                 # Servicios
+│   └── server.js                 # Punto de entrada
+│
+├── client/                       # Frontend
+│   ├── public/                   # Archivos estáticos
+│   └── src/
+│       ├── api/                  # Cliente API
+│       ├── assets/               # Recursos estáticos
+│       ├── components/           # Componentes React
+│       │   ├── auth/             # Componentes de autenticación
+│       │   ├── sorteos/          # Componentes de sorteos
+│       │   ├── premios/          # Componentes de premios
+│       │   ├── participantes/    # Componentes de participantes
+│       │   ├── admin/            # Componentes de administración
+│       │   └── common/           # Componentes comunes
+│       ├── context/              # Context API / Redux
+│       ├── hooks/                # Hooks personalizados
+│       ├── pages/                # Páginas principales
+│       ├── utils/                # Utilidades
+│       ├── App.jsx               # Componente principal
+│       └── index.jsx             # Punto de entrada
+│
+├── scripts/                      # Scripts de utilidad
+├── docs/                         # Documentación
+├── .env                          # Variables de entorno
+└── package.json                  # Dependencias del proyecto
+```
+
+## Archivos Clave a Migrar
+
+### Backend (server)
+
+1. **Configuración**
+   - `server/config/database.js` - Configuración de PostgreSQL
+   - `server/config/app.js` - Configuración general
+   - `server/config/auth.js` - Configuración de autenticación
+
+2. **Modelos**
+   - `server/models/Usuario.js`
+   - `server/models/Sorteo.js`
+   - `server/models/Premio.js`
+   - `server/models/Participante.js`
+   - `server/models/Estado.js`
+   - `server/models/CategoriaPremio.js`
+   - `server/models/Ganador.js`
+   - `server/models/Actividad.js`
+
+3. **Controladores**
+   - `server/controllers/authController.js`
+   - `server/controllers/sorteoController.js`
+   - `server/controllers/premioController.js`
+   - `server/controllers/participanteController.js`
+   - `server/controllers/estadoController.js`
+   - `server/controllers/ganadorController.js`
+   - `server/controllers/categoriaController.js`
+
+4. **Rutas**
+   - `server/routes/auth.js`
+   - `server/routes/sorteos.js`
+   - `server/routes/premios.js`
+   - `server/routes/participantes.js`
+   - `server/routes/estados.js`
+   - `server/routes/ganadores.js`
+   - `server/routes/categorias.js`
+   - `server/routes/actividades.js`
+
+5. **Middlewares**
+   - `server/middlewares/auth.js` - Autenticación JWT
+   - `server/middlewares/validation.js` - Validación de datos
+   - `server/middlewares/errorHandler.js` - Manejo de errores
+
+6. **Archivos de Base de Datos**
+   - `server/database/migrations/initial.sql` - Esquema inicial
+   - `server/database/seeds/estados.js` - Carga de estados/municipios/parroquias
+   - `server/database/seeds/categorias.js` - Categorías predefinidas
+
+### Frontend (client)
+
+1. **Configuración**
+   - `client/src/api/config.js` - Configuración de API
+   - `client/src/context/AuthContext.jsx` - Contexto de autenticación
+   - `client/vite.config.js` - Configuración de Vite
+
+2. **Componentes Principales**
+   - `client/src/components/auth/Login.jsx`
+   - `client/src/components/auth/Register.jsx`
+   - `client/src/components/sorteos/CrearSorteo.jsx`
+   - `client/src/components/sorteos/ListaSorteos.jsx`
+   - `client/src/components/sorteos/DetalleSorteo.jsx`
+   - `client/src/components/premios/GestionPremios.jsx`
+   - `client/src/components/participantes/GestionParticipantes.jsx`
+   - `client/src/components/ganadores/ResultadosSorteo.jsx`
+
+3. **Utilidades**
+   - `client/src/utils/api.js` - Cliente API
+   - `client/src/utils/auth.js` - Funciones de autenticación
+   - `client/src/utils/dates.js` - Manejo de fechas
+   - `client/src/utils/validation.js` - Validación de formularios
+
+4. **Páginas**
+   - `client/src/pages/Home.jsx`
+   - `client/src/pages/Login.jsx`
+   - `client/src/pages/Dashboard.jsx`
+   - `client/src/pages/CrearSorteo.jsx`
+   - `client/src/pages/VerSorteo.jsx`
+   - `client/src/pages/Resultados.jsx`
+   - `client/src/pages/Admin.jsx`
+
+## Archivos de Configuración
+
+1. **Package.json Principal**
+```json
+{
+  "name": "sorteo-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "migrate": "node server/database/migrations/run.js",
+    "seed": "node server/database/seeds/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.10.0",
+    "pg-promise": "^11.4.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22"
+  }
+}
+```
+
+2. **Package.json del Cliente (client/package.json)**
+```json
+{
+  "name": "sorteo-client",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.0",
+    "axios": "^1.3.5",
+    "jwt-decode": "^3.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.2.1"
+  }
+}
+```
+
+## Pasos para la Migración
+
+1. **Configuración inicial**
+   - Crear la estructura de carpetas
+   - Configurar package.json principal
+   - Configurar package.json del cliente
+   - Configurar .env con variables de entorno
+
+2. **Migrar la base de datos**
+   - Verificar que PostgreSQL esté configurado
+   - Ejecutar scripts de migración
+   - Cargar datos iniciales (estados, categorías)
+
+3. **Desarrollar el Backend**
+   - Configurar conexión a PostgreSQL
+   - Implementar modelos
+   - Desarrollar controladores
+   - Implementar rutas API
+   - Configurar middlewares
+
+4. **Desarrollar el Frontend**
+   - Configurar Vite
+   - Implementar contexto de autenticación
+   - Desarrollar componentes base
+   - Implementar páginas principales
+
+5. **Pruebas**
+   - Probar la autenticación
+   - Verificar operaciones CRUD de sorteos
+   - Probar la gestión de premios y participantes
+   - Validar el proceso de sorteo
+
+--------------------------------------------------------------
+
+
+# Guía de Instalación para el Sistema de Sorteos
+
+## 1. Instalación y Configuración de PostgreSQL
+
+### 1.1. Instalar PostgreSQL
+1. Descarga PostgreSQL desde [https://www.postgresql.org/download/windows/](https://www.postgresql.org/download/windows/)
+2. Ejecuta el instalador y sigue estos pasos:
+   - Selecciona los componentes (mantén todos seleccionados)
+   - Establece la contraseña para el usuario 'postgres': `Ap3r1t1v02025` (como en tu archivo .env)
+   - Selecciona el puerto 5432 (predeterminado)
+   - Finaliza la instalación
+
+### 1.2. Crear la Base de Datos
+1. Abre pgAdmin (instalado con PostgreSQL)
+2. Conéctate al servidor (introduce la contraseña)
+3. Crea una nueva base de datos:
+   - Nombre: `sorteo_db`
+   - Codificación: `UTF8`
+   - Propietario: `postgres`
+
+### 1.3. Estructura Inicial de la Base de Datos
+1. Abre SQL Shell (psql) o usa pgAdmin para ejecutar consultas
+2. Conéctate a la base de datos `sorteo_db`
+3. Ejecuta las siguientes consultas para crear las tablas principales:
+
+```sql
+CREATE TABLE public.usuarios (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    nombre_completo VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    rol VARCHAR(20) NOT NULL DEFAULT 'operador',
+    activo BOOLEAN DEFAULT TRUE,
+    ultimo_acceso TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE public.categorias_premios (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) UNIQUE NOT NULL,
+    descripcion TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE public.estados (
+    id SERIAL PRIMARY KEY,
+    nom_estado VARCHAR(100) NOT NULL,
+    cod_estado integer NOT NULL,
+    nom_municipio VARCHAR(100) NOT NULL,
+    cod_municipio integer NOT NULL,
+    nom_parroquia VARCHAR(100) NOT NULL,
+    cod_parroquia integer NOT NULL,
+    activo BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE public.sorteos (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_sorteo TIMESTAMP,
+    estado VARCHAR(50),
+    descripcion TEXT,
+    creado_por INTEGER REFERENCES public.usuarios(id),
+    estado_actual VARCHAR(30) DEFAULT 'borrador',
+    es_publico BOOLEAN DEFAULT FALSE,
+    reglas TEXT,
+    imagenes_json JSONB,
+    metadata JSONB
+);
+
+CREATE TABLE public.premios (
+    id SERIAL PRIMARY KEY,
+    sorteo_id INTEGER REFERENCES sorteos(id),
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    valor DECIMAL(10,2),
+    orden INTEGER,
+    categoria_id INTEGER REFERENCES public.categorias_premios(id),
+    patrocinador VARCHAR(100),
+    condiciones TEXT,
+    fecha_entrega TIMESTAMP,
+    images_json JSONB
+);
+
+CREATE TABLE public.participantes (
+    id SERIAL PRIMARY KEY,
+    sorteo_id INTEGER REFERENCES sorteos(id),
+    nombre VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    telefono VARCHAR(50),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    validado BOOLEAN DEFAULT FALSE,
+    validado_por INTEGER REFERENCES public.usuarios(id),
+    fecha_validacion TIMESTAMP,
+    metodo_registro VARCHAR(30) DEFAULT 'manual',
+    datos_adicionales JSONB
+);
+
+CREATE TABLE public.ganadores (
+    id SERIAL PRIMARY KEY,
+    sorteo_id INTEGER REFERENCES sorteos(id),
+    participante_id INTEGER REFERENCES participantes(id),
+    premio_id INTEGER REFERENCES premios(id),
+    fecha_sorteo TIMESTAMP NOT NULL,
+    validado BOOLEAN DEFAULT FALSE,
+    informacion_contacto JSONB,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE public.actividades (
+    id SERIAL PRIMARY KEY,
+    usuario_id INTEGER REFERENCES usuarios(id),
+    accion VARCHAR(50) NOT NULL,
+    tabla_afectada VARCHAR(50),
+    registro_id INTEGER,
+    detalles JSONB,
+    ip_address VARCHAR(45),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+```
+
+### 1.4. Cargar Datos Iniciales
+1. Crear un administrador inicial:
+
+```sql
+INSERT INTO public.usuarios (username, password_hash, nombre_completo, email, rol)
+VALUES ('admin', '$2a$10$YnvJ0I3BMJUBlVKT8YG4DOFj5MlKwxBp0sG9JxEU4Z8M6J1QiCpMG', 'Administrador', 'admin@sorteo.com', 'admin');
+```
+
+2. Insertar categorías de premios iniciales:
+
+```sql
+INSERT INTO public.categorias_premios (nombre, descripcion)
+VALUES 
+('Electrodomésticos', 'Equipos para el hogar'),
+('Electrónica', 'Equipos electrónicos y gadgets'),
+('Vehículos', 'Carros, motos y otros vehículos'),
+('Viajes', 'Paquetes turísticos y viajes'),
+('Efectivo', 'Premios en efectivo');
+```
+
+## 2. Instalación y Configuración del Frontend
+
+### 2.1. Preparar el Entorno de Desarrollo
+1. Asegúrate de tener Node.js instalado (versión 16.x o superior):
+   - Descarga desde [https://nodejs.org/](https://nodejs.org/)
+   - Verifica la instalación con:
+   ```
+   node --version
+   npm --version
+   ```
+
+2. Crear la estructura de carpetas:
+   ```powershell
+   mkdir -p sorteo-app/client
+   cd sorteo-app
+   ```
+
+### 2.2. Configurar el Frontend con Vite
+1. Crear aplicación React con Vite:
+   ```powershell
+   cd client
+   npm create vite@latest . -- --template react
+   npm install
+   ```
+
+2. Instalar dependencias principales:
+   ```powershell
+   npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
+   npm install react-router-dom axios jwt-decode
+   ```
+
+### 2.3. Configurar el Backend (Express)
+1. Volver a la carpeta principal e inicializar el proyecto:
+   ```powershell
+   cd ..
+   npm init -y
+   ```
+
+2. Instalar dependencias del backend:
+   ```powershell
+   npm install express pg pg-promise dotenv cors jsonwebtoken bcryptjs
+   npm install --save-dev nodemon concurrently
+   ```
+
+3. Crear archivo `.env` en la raíz:
+   ```
+   # Servidor
+   PORT=3001
+   NODE_ENV=development
+
+   # PostgreSQL
+   POSTGRES_HOST=localhost
+   POSTGRES_PORT=5432
+   POSTGRES_DB=sorteo_db
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=Ap3r1t1v02025
+
+   # JWT
+   JWT_SECRET=sorteo_secret_key_change_in_production
+   JWT_EXPIRES_IN=24h
+   ```
+
+### 2.4. Configurar Scripts en package.json
+1. Edita el archivo `package.json` en la raíz:
+   ```json
+   {
+     "name": "sorteo-app",
+     "version": "1.0.0",
+     "scripts": {
+       "start": "node server/server.js",
+       "server": "nodemon server/server.js",
+       "client": "cd client && npm run dev",
+       "dev": "concurrently \"npm run server\" \"npm run client\"",
+       "install-all": "npm install && cd client && npm install"
+     },
+     "dependencies": {
+       "bcryptjs": "^2.4.3",
+       "cors": "^2.8.5",
+       "dotenv": "^16.0.3",
+       "express": "^4.18.2",
+       "jsonwebtoken": "^9.0.0",
+       "pg": "^8.10.0",
+       "pg-promise": "^11.4.3"
+     },
+     "devDependencies": {
+       "concurrently": "^8.0.1",
+       "nodemon": "^2.0.22"
+     }
+   }
+   ```
+
+### 2.5. Estructura Básica del Backend
+1. Crear archivo `server/server.js`:
+   ```javascript
+   require('dotenv').config();
+   const express = require('express');
+   const cors = require('cors');
+   const path = require('path');
+
+   // Inicializar app
+   const app = express();
+   const PORT = process.env.PORT || 3001;
+
+   // Middlewares
+   app.use(cors());
+   app.use(express.json());
+
+   // Rutas básicas
+   app.get('/api/health', (req, res) => {
+     res.json({ status: 'ok', message: 'API running' });
+   });
+
+   // Iniciar servidor
+   app.listen(PORT, () => {
+     console.log(`Servidor iniciado en puerto ${PORT}`);
+   });
+   ```
+
+2. Crear archivo `server/config/database.js`:
+   ```javascript
+   require('dotenv').config();
+   const pgp = require('pg-promise')();
+
+   const config = {
+     host: process.env.POSTGRES_HOST,
+     port: process.env.POSTGRES_PORT,
+     database: process.env.POSTGRES_DB,
+     user: process.env.POSTGRES_USER,
+     password: process.env.POSTGRES_PASSWORD
+   };
+
+   const db = pgp(config);
+
+   // Probar conexión
+   db.connect()
+     .then(obj => {
+       console.log('Conexión a PostgreSQL establecida');
+       obj.done();
+     })
+     .catch(error => {
+       console.error('Error conectando a PostgreSQL:', error);
+     });
+
+   module.exports = db;
+   ```
+
+### 2.6. Estructura Básica del Frontend
+1. Editar `client/src/App.jsx`:
+   ```jsx
+   import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+   import './App.css';
+
+   // Páginas ficticias - crearás estos componentes después
+   const Home = () => <div>Página de Inicio</div>;
+   const Login = () => <div>Login</div>;
+   const Dashboard = () => <div>Dashboard</div>;
+
+   function App() {
+     return (
+       <Router>
+         <Routes>
+           <Route path="/" element={<Home />} />
+           <Route path="/login" element={<Login />} />
+           <Route path="/dashboard" element={<Dashboard />} />
+         </Routes>
+       </Router>
+     );
+   }
+
+   export default App;
+   ```
+
+2. Configurar Vite (`client/vite.config.js`):
+   ```javascript
+   import { defineConfig } from 'vite';
+   import react from '@vitejs/plugin-react';
+
+   export default defineConfig({
+     plugins: [react()],
+     server: {
+       port: 3000,
+       proxy: {
+         '/api': {
+           target: 'http://localhost:3001',
+           changeOrigin: true,
+           secure: false
+         }
+       }
+     }
+   });
+   ```
+
+## 3. Iniciar el Desarrollo
+
+### 3.1. Iniciar ambos servidores
+1. En la carpeta principal del proyecto:
+   ```powershell
+   npm run dev
+   ```
+   Esto iniciará tanto el backend (puerto 3001) como el frontend (puerto 3000)
+
+### 3.2. Verificar la instalación
+1. Backend: Navega a http://localhost:3001/api/health
+   - Deberías ver un mensaje JSON: `{"status":"ok","message":"API running"}`
+
+2. Frontend: Navega a http://localhost:3000
+   - Deberías ver la página de inicio básica de React
+
+### 3.3. Próximos pasos
+1. Desarrollar API para la autenticación
+2. Crear componentes para el login y registro
+3. Implementar CRUD para sorteos, premios y participantes
+4. Desarrollar la interfaz para la gestión de sorteos
+
+¿Quieres que profundice en alguna parte específica de esta instalación?

@@ -1,0 +1,213 @@
+/* Estilos de botones con mejor contraste para accesibilidad */
+
+/* Botón texto plano con buen contraste */
+.btn-text {
+  color: #0056b3; /* Azul oscuro para mejor contraste */
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  text-decoration: underline;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.btn-text:hover {
+  color: #003d7e; /* Azul más oscuro al pasar el mouse */
+}
+
+.btn-text:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+.btn-text:active {
+  color: #002b59;
+}
+
+.btn-text:disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Estilos para los botones principales */
+.btn {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.btn:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Tamaños */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.btn-md {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.25rem;
+  font-size: 1.125rem;
+}
+
+/* Colores con buen contraste */
+.btn-primary {
+  background-color: #0056b3;
+  color: #ffffff;
+  border-color: #0056b3;
+}
+
+.btn-primary:hover {
+  background-color: #003d7e;
+  border-color: #003d7e;
+}
+
+.btn-primary:active {
+  background-color: #002b59;
+  border-color: #002b59;
+}
+
+.btn-secondary {
+  background-color: #5a6268;
+  color: #ffffff;
+  border-color: #5a6268;
+}
+
+.btn-secondary:hover {
+  background-color: #4e555b;
+  border-color: #4e555b;
+}
+
+.btn-success {
+  background-color: #107c10;
+  color: #ffffff;
+  border-color: #107c10;
+}
+
+.btn-success:hover {
+  background-color: #0c590c;
+  border-color: #0c590c;
+}
+
+.btn-danger {
+  background-color: #c9302c;
+  color: #ffffff;
+  border-color: #c9302c;
+}
+
+.btn-danger:hover {
+  background-color: #a42622;
+  border-color: #a42622;
+}
+
+.btn-warning {
+  background-color: #9b630c;
+  color: #ffffff;
+  border-color: #9b630c;
+}
+
+.btn-warning:hover {
+  background-color: #7d4e09;
+  border-color: #7d4e09;
+}
+
+.btn-info {
+  background-color: #117a8b;
+  color: #ffffff;
+  border-color: #117a8b;
+}
+
+.btn-info:hover {
+  background-color: #0c5a67;
+  border-color: #0c5a67;
+}
+
+/* Versiones outline de los botones */
+.btn-outline-primary {
+  color: #0056b3;
+  border-color: #0056b3;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  color: #5a6268;
+  border-color: #5a6268;
+  background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #5a6268;
+  color: #ffffff;
+}
+
+.btn-outline-success {
+  color: #107c10;
+  border-color: #107c10;
+  background-color: transparent;
+}
+
+.btn-outline-success:hover {
+  background-color: #107c10;
+  color: #ffffff;
+}
+
+.btn-outline-danger {
+  color: #c9302c;
+  border-color: #c9302c;
+  background-color: transparent;
+}
+
+.btn-outline-danger:hover {
+  background-color: #c9302c;
+  color: #ffffff;
+}
+
+.btn-outline-warning {
+  color: #9b630c;
+  border-color: #9b630c;
+  background-color: transparent;
+}
+
+.btn-outline-warning:hover {
+  background-color: #9b630c;
+  color: #ffffff;
+}
+
+.btn-outline-info {
+  color: #117a8b;
+  border-color: #117a8b;
+  background-color: transparent;
+}
+
+.btn-outline-info:hover {
+  background-color: #117a8b;
+  color: #ffffff;
+} 

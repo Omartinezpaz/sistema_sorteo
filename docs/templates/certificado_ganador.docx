@@ -1,0 +1,15 @@
+# Plantilla de Certificado de Ganador
+
+Este archivo es un placeholder para la plantilla real del certificado de ganador.
+En un entorno de producción, esta sería una plantilla DOCX con campos de fusión como:
+
+- {{ nombre_sorteo }}
+- {{ fecha_sorteo }}
+- {{ nombre_ganador }}
+- {{ apellido_ganador }}
+- {{ documento_identidad }}
+- {{ premio }}
+- {{ codigo_certificado }}
+- {{ fecha_emision }}
+
+Por favor, reemplaza este archivo con una plantilla DOCX real diseñada profesionalmente. 

@@ -1,0 +1,32 @@
+Este es un archivo de texto que representa un acta de sorteo.
+En una implementación real, este debería ser un archivo .docx con el formato correcto.
+
+ACTA DE SORTEO
+
+SISTEMA DE SORTEOS PUEBLO VALIENTE
+
+En la ciudad de _____________, siendo las ___:___ horas del día ___ del mes de _____________ de ________, se llevó a cabo el sorteo denominado "_____________________", con las siguientes características:
+
+1. DATOS GENERALES:
+   - Fecha y hora: ___/___/______ ___:___
+   - Lugar: _______________________
+   - Tipo de sorteo: _______________________
+   - Autoridades presentes: _______________________
+
+2. PREMIOS SORTEADOS:
+   - Premio 1: _______________________
+   - Premio 2: _______________________
+   - Premio 3: _______________________
+
+3. GANADORES:
+   - Ganador 1: _______________________ Ticket: _______________________
+   - Ganador 2: _______________________ Ticket: _______________________
+   - Ganador 3: _______________________ Ticket: _______________________
+
+4. OBSERVACIONES:
+   _________________________________________________________________
+   _________________________________________________________________
+
+5. FIRMAS:
+   _______________________       _______________________
+   Responsable del Sorteo         Autoridad Verificadora 

@@ -1,0 +1,19 @@
+# Plantilla de Acta de Sorteo
+
+Este archivo es un placeholder para la plantilla real del acta de sorteo.
+En un entorno de producción, esta sería una plantilla DOCX con campos de fusión como:
+
+- {{ nombre_sorteo }}
+- {{ fecha_sorteo }}
+- {{ hora_sorteo }}
+- {{ ubicacion }}
+- {{ responsable }}
+- {{ testigos }}
+- {{ cantidad_participantes }}
+- {{ cantidad_premios }}
+- {{ tabla_ganadores }}
+- {{ firmas }}
+- {{ fecha_emision }}
+- {{ codigo_acta }}
+
+Por favor, reemplaza este archivo con una plantilla DOCX real diseñada profesionalmente. 

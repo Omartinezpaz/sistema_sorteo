@@ -1,0 +1,83 @@
+.creacion-sorteo-paper {
+  padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sorteo-stepper {
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.step-content-container {
+  margin-top: 20px;
+}
+
+.step-content {
+  min-height: 350px;
+  padding: 20px 0;
+}
+
+.navigation-buttons {
+  display: flex;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.sorteo-finalizado {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Estilos específicos para pasos individuales */
+.informacion-basica-form, 
+.configuracion-tickets-form,
+.gestion-premios-form,
+.metodo-seleccion-form {
+  padding: 10px;
+}
+
+.form-section {
+  margin-bottom: 25px;
+}
+
+.form-section-title {
+  margin-bottom: 15px;
+  color: #FC0457;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* Estilos para la tabla de premios */
+.premios-table {
+  margin-top: 20px;
+}
+
+/* Estilos para la tabla de rangos */
+.rangos-table {
+  margin-top: 20px;
+}
+
+/* Estilos para las tarjetas de revisión */
+.revision-card {
+  margin-bottom: 20px;
+  border-left: 4px solid #FC0457;
+}
+
+/* Animaciones */
+@keyframes highlight {
+  0% {
+    background-color: rgba(252, 4, 87, 0.1);
+  }
+  50% {
+    background-color: rgba(252, 4, 87, 0.2);
+  }
+  100% {
+    background-color: rgba(252, 4, 87, 0.1);
+  }
+}
+
+.highlight {
+  animation: highlight 2s ease-in-out;
+} 

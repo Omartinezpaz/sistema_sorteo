@@ -1,0 +1,74 @@
+/* Variables globales de color accesibles */
+:root {
+  /* Colores primarios con buen contraste */
+  --primary: #a90052;
+  --primary-light: #dd2277;
+  --primary-lighter: #f48fb1;
+  --primary-dark: #7b0046;
+  
+  /* Colores de texto con buen contraste */
+  --text-primary: #212121;
+  --text-secondary: #424242;
+  --text-disabled: #757575;
+  --text-light: #ffffff;
+  
+  /* Colores de fondo */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #eeeeee;
+  
+  /* Colores de estado */
+  --success: #2e7d32;
+  --warning: #ed6c02;
+  --error: #c62828;
+  --info: #0277bd;
+  
+  /* Colores de borde */
+  --border-primary: #dddddd;
+  --border-light: #e0e0e0;
+  
+  /* Estilos de fuente */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Clases de ayuda para accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Estilos de enfoque visibles - importantes para la accesibilidad por teclado */
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Proporcionar contrastes para textos sobre fondos de color */
+.text-on-primary {
+  color: white;
+}
+
+.text-on-dark {
+  color: white;
+}
+
+.text-on-light {
+  color: var(--text-primary);
+}
+
+/* Mejorar la legibilidad de los enlaces mediante subrayado */
+a {
+  text-decoration: underline;
+}
+
+/* Ajustar la visualización de enlaces focalizados */
+a:focus {
+  text-decoration: none;
+} 

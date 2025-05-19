@@ -1,0 +1,63 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 50px auto;
+}
+
+.login-form h2 {
+  color: var(--primary-color, #FC0457); /* Usar color primario, con fallback */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: calc(100% - 20px); /* Ajustar por padding interno del input */
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.login-button {
+  background-color: var(--primary-color, #FC0457);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #d9034b; /* Un tono más oscuro del primario */
+}
+
+.login-error-message {
+  color: red;
+  background-color: #ffebee;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: calc(100% - 20px); /* Para que coincida con el padding del form */
+  box-sizing: border-box;
+  text-align: center;
+} 
